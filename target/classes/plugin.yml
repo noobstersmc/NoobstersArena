@@ -1,3 +1,5 @@
 name: NoobstersArena
 main: me.infinityz.NoobstersArena
 version: 1.0-SNAPSHOT
+depend:
+  - ProtocolLib
