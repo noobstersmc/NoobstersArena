@@ -7,7 +7,7 @@ public class NoobstersArena extends JavaPlugin {
 
     @Override
     public void onEnable(){
-        Bukkit.broadcastMessage("test");
+        Bukkit.broadcastMessage("tesst");
 
     }
     @Override
