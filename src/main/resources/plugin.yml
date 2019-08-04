@@ -1,3 +1,6 @@
-name: NoobstersArenaLobby
-main: me.infinityz.NoobstersArenaLobby
-version: 1.0-SNAPSHOT
+name: ${project.artifactId}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+commands:
+  publish:
+    aliases: [pub]

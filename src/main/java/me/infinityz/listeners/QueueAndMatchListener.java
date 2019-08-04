@@ -21,6 +21,7 @@ public class QueueAndMatchListener implements Listener {
         if(event.isCancelled())return;
         event.getPlayer().sendMessage(ChatColor.GREEN + "You have joined the queue for " +ChatColor.WHITE + event.getMatchType() + " " + event.getLadderType());
         event.getPlayer().getOpenInventory().close();
+        instance.getQueueManager().sendMatchMakingRequest(event.getPlayer().getUniqueId(), event.getLadderType(), event.getMatchType());
         if(instance.getScoreboardManager().getUuidArenaScoreboardMap().containsKey(event.getPlayer().getUniqueId())) {
             instance.getScoreboardManager().getUuidArenaScoreboardMap().get(event.getPlayer().getUniqueId()).destroy();
             instance.getScoreboardManager().getUuidArenaScoreboardMap().remove(event.getPlayer().getUniqueId());

@@ -2,7 +2,7 @@ package me.infinityz.listeners;
 
 import me.infinityz.NoobstersArenaLobby;
 import me.infinityz.events.QueueEvent;
-import me.infinityz.queuing.Queue;
+import me.infinityz.queuing.QueueManager;
 import me.infinityz.utils.ItemUtils;
 import me.infinityz.utils.scoreboard.ArenaScoreboard;
 import net.md_5.bungee.api.ChatColor;
@@ -10,7 +10,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
@@ -21,11 +20,6 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class LobbyFundamentals implements Listener {
     private NoobstersArenaLobby instance;
@@ -120,17 +114,28 @@ public class LobbyFundamentals implements Listener {
     public void onInventoryClickEvent(InventoryClickEvent e){
         if(e.getInventory() == null || e.getClickedInventory() == null)return;
         if(e.getView().getTopInventory().getType() == InventoryType.CRAFTING) e.setCancelled(true);
-        if(e.getView().getTopInventory().getHolder() != unrankedSelector.getHolder() && e.getView().getTopInventory().getHolder() != rankedSelector.getHolder())return;
+        //if(e.getView().getTopInventory().getHolder() != unrankedSelector.getHolder() && e.getView().getTopInventory().getHolder() != rankedSelector.getHolder())return;
         e.setCancelled(true);
-        switch (e.getCurrentItem().getType()){
-            case LAVA_BUCKET:{
-                QueueEvent queueEvent = new QueueEvent((Player)e.getWhoClicked(), Queue.MatchType.Unranked, Queue.LadderType.BuildUHC);
-                Bukkit.getPluginManager().callEvent(queueEvent);
-                break;
-            }
-            case AIR:{
-                break;
+        if(e.getView().getTopInventory().getHolder() == unrankedSelector.getHolder()) {
 
+            Bukkit.broadcastMessage("ho");
+            switch (e.getCurrentItem().getType()) {
+                case LAVA_BUCKET: {
+                    QueueEvent queueEvent = new QueueEvent((Player) e.getWhoClicked(), QueueManager.MatchType.Unranked, QueueManager.LadderType.BuildUHC);
+                    Bukkit.getPluginManager().callEvent(queueEvent);
+                    break;
+                }
+                case AIR: {
+                    Bukkit.broadcastMessage("tst");
+                    break;
+
+                }
+            }
+        }else if(e.getView().getTopInventory().getHolder() == rankedSelector){
+            Bukkit.broadcastMessage("ha");
+            switch ((e.getSlot())){
+                default:
+                    Bukkit.broadcastMessage(e.getSlot() + "");
             }
         }
 
