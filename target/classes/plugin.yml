@@ -1,6 +1,0 @@
-name: NoobstersArenaLobby
-main: me.infinityz.NoobstersArenaLobby
-version: 1.1-SNAPSHOT
-commands:
-  publish:
-    aliases: [pub]
