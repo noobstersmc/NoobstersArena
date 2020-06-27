@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>jars.me.infinityz</groupId>
+  <artifactId>spigot</artifactId>
+  <versioning>
+    <release>1.16.1</release>
+    <versions>
+      <version>1.16.1</version>
+    </versions>
+    <lastUpdated>20200627173018</lastUpdated>
+  </versioning>
+</metadata>
