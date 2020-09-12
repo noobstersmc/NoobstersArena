@@ -1,5 +1,4 @@
- #!ipxe
-  
-  kernel http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/vmlinuz initrd=initrd.img repo=http://mirror.centos.org/centos/7/os/x86_64
-  initrd http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/initrd.img
-  boot
+#!ipxe
+kernel http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/vmlinuz initrd=initrd.img repo=http://mirror.centos.org/centos/7/os/x86_64
+initrd http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/initrd.img
+boot
