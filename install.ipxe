@@ -1,8 +1,5 @@
  #!ipxe
   
-  set base http://mirror.centos.org/centos/7/os/x86_64
-  
-  prompt -k 0x197e -t 2000 Press F12 to install CentOS... || exit
-  kernel ${base}/images/pxeboot/vmlinuz initrd=initrd.img repo=${base}
-  initrd ${base}/images/pxeboot/initrd.img
+  kernel http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/vmlinuz initrd=initrd.img repo=http://mirror.centos.org/centos/7/os/x86_64
+  initrd http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/initrd.img
   boot
